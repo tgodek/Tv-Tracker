@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graf"
+    app:startDestination="@id/splashScreenFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.tvtraker.ui.fragments.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_serijeFragment"
+            app:destination="@id/serijeFragment"
+            app:popUpTo="@id/splashScreenFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/serijeFragment"
+        android:name="com.example.tvtraker.ui.fragments.series.SerijeFragment"
+        android:label="Recommendations"
+        tools:layout="@layout/fragment_serije">
+        <action
+            android:id="@+id/action_serijeFragment_to_serijeDetailFragment"
+            app:destination="@id/serijeDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="com.example.tvtraker.ui.fragments.splashscreen.SplashScreenFragment"
+        android:label="fragment_splash_screen"
+        tools:layout="@layout/fragment_splash_screen" >
+        <action
+            android:id="@+id/action_splashScreenFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/splashScreenFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashScreenFragment_to_serijeFragment"
+            app:destination="@id/serijeFragment"
+            app:popUpTo="@id/splashScreenFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.tvtraker.ui.fragments.register.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profilFragment"
+        android:name="com.example.tvtraker.ui.fragments.profil.ProfilFragment"
+        android:label="Profil"
+        tools:layout="@layout/fragment_profil" >
+        <action
+            android:id="@+id/action_profilFragment_to_profilSerijeDetailFragment"
+            app:destination="@id/profilSerijeDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/serijeDetailFragment"
+        android:name="com.example.tvtraker.ui.fragments.seriesdetail.SerijeDetailFragment"
+        android:label="Details"
+        tools:layout="@layout/fragment_serije_detail">
+        <action
+            android:id="@+id/action_serijeDetailFragment_to_serijeFragment"
+            app:destination="@id/serijeFragment" />
+        <argument
+            android:name="Serija"
+            app:argType="com.example.tvtraker.model.TvSerija" />
+    </fragment>
+    <fragment
+        android:id="@+id/profilSerijeDetailFragment"
+        android:name="com.example.tvtraker.ui.fragments.profil.ProfilSerijeDetailFragment"
+        android:label="Details"
+        tools:layout="@layout/fragment_profil_serije_detail">
+        <action
+            android:id="@+id/action_profilSerijeDetailFragment_to_profilFragment"
+            app:destination="@id/profilFragment" />
+        <argument
+            android:name="Serija"
+            app:argType="com.example.tvtraker.model.TvSerija" />
+    </fragment>
+</navigation>
